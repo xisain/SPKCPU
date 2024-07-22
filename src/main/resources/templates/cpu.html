@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=en xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,96 +27,139 @@
                 </div>
             </div>
             <a class="navbar-brand" href="#">Account</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
         </div>
     </nav>
     <div class="d-flex flex-column align-items-start" style="margin-top: 20px; color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-left: 20px;">
         <h1 class="display-1 fw-bold">Bandingkan CPU</h1>
-        <h5 style="width: 40rem; text-align: start;">Anda dapat membandingkan CPU anda terhadap CPU pilihan kedua anda jika anda bingung dengan keputusan akhir pemilihan</h4>
+        <h5 style="width: 40rem; text-align: start;">Anda dapat membandingkan CPU anda terhadap CPU pilihan kedua anda jika anda bingung dengan keputusan akhir pemilihan</h5>
     </div>
 </div>
 <div class="list">
     <div class="card-container">
-        <div class="card" style="width: 10rem; height: 8rem;">
+        <div class="card" style="width: 15rem; height: 84rem;">
             <div class="card-body">
-              <h5 class="card-title">Vendor</h5>
-              <div class="checkbox-container">
-                <input type="radio" id="intel" name="vendor" value="intel">
-                <label for="intel"> Intel</label>
-              </div>
-              <div class="checkbox-container">
-                <input type="radio" id="amd" name="vendor" value="AMD">
-                <label for="amd"> AMD</label>
-              </div>
-            </div>
-          </div>
-        <div class="card" style="width: 10rem;">
-            <div class="card-body">
-                <h5 class="card-title">Harga</h5>
-                <input type="text" placeholder="Harga" style="width: 8rem;">
+                <h5 class="card-title">Criteria</h5>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="vendorCriteria" name="criteria" value="vendor" onclick="toggleField('vendorCriteria', 'vendorDropdown')">
+                    <label for="vendorCriteria">Vendor</label>
+                </div>
+                <select id="vendorDropdown" class="form-select"></select>
+                <br>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="baseclockCriteria" name="criteria" value="baseclock" onclick="toggleField('baseclockCriteria', 'baseclockWeight')">
+                    <label for="baseclockCriteria">Base Clock</label>
+                </div>
+                <input type="number" id="baseclockWeight" placeholder="Weight">
+                <br>
+                <br>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="boostclockCriteria" name="criteria" value="boostclock" onclick="toggleField('boostclockCriteria', 'boostclockWeight')">
+                    <label for="boostclockCriteria">Boost Clock</label>
+                </div>
+                <input type="number" id="boostclockWeight" placeholder="Weight">
+                <br>
+                <br>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="coreCriteria" name="criteria" value="core" onclick="toggleField('coreCriteria', 'coreWeight')">
+                    <label for="coreCriteria">Core</label>
+                </div>
+                <input type="number" id="coreWeight" placeholder="Weight">
+                <br>
+                <br>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="threadCriteria" name="criteria" value="thread" onclick="toggleField('threadCriteria', 'threadWeight')">
+                    <label for="threadCriteria">Thread</label>
+                </div>
+                <input type="number" id="threadWeight" placeholder="Weight">
+                <br>
+                <br>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="cacheCriteria" name="criteria" value="cache" onclick="toggleField('cacheCriteria', 'cacheWeight')">
+                    <label for="cacheCriteria">Cache</label>
+                </div>
+                <input type="number" id="cacheWeight" placeholder="Weight">
+                <br>
+                <br>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="lithographyCriteria" name="criteria" value="lithography" onclick="toggleField('lithographyCriteria', 'lithographyWeight')">
+                    <label for="lithographyCriteria">Lithography</label>
+                </div>
+                <input type="number" id="lithographyWeight" placeholder="Weight">
+                <br>
+                <br>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="defaulttdpCriteria" name="criteria" value="defaulttdp" onclick="toggleField('defaulttdpCriteria', 'defaulttdpWeight')">
+                    <label for="defaulttdpCriteria">Default TDP</label>
+                </div>
+                <input type="number" id="defaulttdpWeight" placeholder="Weight">
+                <br>
+                <br>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="loweredtdpCriteria" name="criteria" value="loweredtdp" onclick="toggleField('loweredtdpCriteria', 'loweredtdpWeight')">
+                    <label for="loweredtdpCriteria">Lowered TDP</label>
+                </div>
+                <input type="number" id="loweredtdpWeight" placeholder="Weight">
+                <br>
+                <br>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="releasedYearCriteria" name="criteria" value="releasedYear" onclick="toggleField('releasedYearCriteria', 'releasedYearWeight')">
+                    <label for="releasedYearCriteria">Released Year</label>
+                </div>
+                <input type="number" id="releasedYearWeight" placeholder="Weight">
+                <br>
+                <br>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="socketCriteria" name="criteria" value="socket" onclick="toggleField('socketCriteria', 'socketDropdown')">
+                    <label for="socketCriteria">Socket</label>
+                </div>
+                <select id="socketDropdown" class="form-select"></select>
+                <br>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="supportedRAMTypeCriteria" name="criteria" value="supportedramtype" onclick="toggleField('supportedRAMTypeCriteria', 'supportedRAMTypeDropdown')">
+                    <label for="supportedRAMTypeCriteria">Supported RAM Type</label>
+                </div>
+                <select id="supportedRAMTypeDropdown" class="form-select"></select>
+                <br>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="isintegratedgpuavailableCriteria" name="criteria" value="isintegratedgpuavailable" onclick="toggleField('isintegratedgpuavailableCriteria', 'isintegratedgpuavailableWeight')">
+                    <label for="isintegratedgpuavailableCriteria">Is Integrated GPU Available</label>
+                </div>
+                <input type="number" id="isintegratedgpuavailableWeight" placeholder="Weight">
+                <br>
+                <br>
+                <br>
+                <button id="calculateAHP">Calculate</button>
             </div>
         </div>
-        <div class="card" style="width: 10rem; height: 12rem;">
-            <div class="card-body">
-              <h5 class="card-title">Tipe Socket</h5>
-              <div class="checkbox-container">
-                <input type="checkbox" id="LGA" name="vendor" value="LGA">
-                <label for="LGA"> LGA</label>
-              </div>
-              <div class="checkbox-container">
-                <input type="checkbox" id="PGA" name="vendor" value="PGA">
-                <label for="PGA"> PGA</label>
-              </div>
-              <div class="checkbox-container">
-                <input type="checkbox" id="BGA" name="vendor" value="BGA">
-                <label for="BGA"> BGA</label>
-              </div>
-              <div class="checkbox-container">
-                <input type="checkbox" id="FS" name="vendor" value="FS">
-                <label for="FS"> FS</label>
-              </div>
-            </div>
-          </div>
-          <div class="card" style="width: 10rem; height: 15rem;">
-            <div class="card-body">
-              <h5 class="card-title">Ram Mendukung</h5>
-              <div class="checkbox-container">
-                <input type="checkbox" id="DDR5" name="vendor" value="DDR5">
-                <label for="DDR5"> DDR5</label>
-              </div>
-              <div class="checkbox-container">
-                <input type="checkbox" id="DDR4" name="vendor" value="DDR4">
-                <label for="DDR4"> DDR4</label>
-              </div>
-              <div class="checkbox-container">
-                <input type="checkbox" id="DDr3" name="vendor" value="DDR3">
-                <label for="DDr3"> DDR3</label>
-              </div>
-              <div class="checkbox-container">
-                <input type="checkbox" id="SDRAM" name="vendor" value="SDRAM">
-                <label for="SDRAM"> SDRAM</label>
-              </div>
-            </div>
-          </div>
     </div>
-    <table class="table table-striped table-hover">
-      <tr>
-        <th>Nama CPU</th>
-        <th>Tanggal Rilis</th>
-        <th>Tipe Socket</th>
-        <th>Ram Support</th>
-        <th>Vendor</th>
-      </tr>
-      <tbody id="cpuTableBody">
-      </tbody>
+    <table class="table table-striped table-hover" style="margin-top: 20px;">
+        <thead>
+        <tr>
+            <th class="criteria-column" data-criteria="name">CPU Name</th>
+            <th class="criteria-column" data-criteria="vendor">Vendor</th>
+            <th class="criteria-column" data-criteria="baseclock">Base Clock</th>
+            <th class="criteria-column" data-criteria="boostclock">Boost Clock</th>
+            <th class="criteria-column" data-criteria="core">Core</th>
+            <th class="criteria-column" data-criteria="thread">Thread</th>
+            <th class="criteria-column" data-criteria="cache">Cache</th>
+            <th class="criteria-column" data-criteria="lithography">Lithography</th>
+            <th class="criteria-column" data-criteria="defaulttdp">Default TDP</th>
+            <th class="criteria-column" data-criteria="loweredtdp">Lowered TDP</th>
+            <th class="criteria-column" data-criteria="releasedYear">Released Year</th>
+            <th class="criteria-column" data-criteria="socket">Socket</th>
+            <th class="criteria-column" data-criteria="supportedramtype">Supported RAM Type</th>
+            <th class="criteria-column" data-criteria="isintegratedgpuavailable">Integrated GPU Available</th>
+            <th class="criteria-column" data-criteria="ahpScore">AHP Score</th>
+        </tr>
+        </thead>
+        <tbody id="cpuTableBody">
+        </tbody>
     </table>
-  </div>
-  <footer>
+</div>
+<footer>
     <div class="copyright">
-      <p>&copy; LuniXecision</p>
+        <p>&copy; LuniXecision</p>
     </div>
-  </footer>
+</footer>
 </body>
 </html>
